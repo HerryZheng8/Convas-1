@@ -12,8 +12,26 @@
     <div id="canvas"></div>
     <script>
         canvas.onclick = (e) => {
-            console.log(e)
+            console.log(e.clientX)
+            console.log(e.clientY)
             // console.log 调试大法
+            let div = document.createElement('div')
+            // 让文档创建一个元素div
+            div.style.position = 'absolute'
+            div.style.left = e.clientX + 'px'
+            div.style.top = e.clientY + 'px'
+            // 创建的元素绝对定位并且 left 和 top 分别取clientX和 clientY 的值，后面加 px
+            // div.style.border = '1px solid red'
+            div.style.width = '6px'
+            div.style.height = '6px'
+            div.style.backgroundColor = 'red'
+            // 创建的元素有1px 宽的红色实心边框，宽高都为5个像素
+            div.style.marginLeft = '-3px'
+            div.style.marginTop = '-3px'
+            // 调整圆点出现时，使其圆心出现在鼠标点击位置
+            div.style.borderRadius = '50%'
+            canvas.appendChild(div)
+            // 创建一个子元素 div
         }
     </script>
 </body>
